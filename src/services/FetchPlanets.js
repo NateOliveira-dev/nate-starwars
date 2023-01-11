@@ -1,4 +1,4 @@
-const planetsAPI = async (URL) => {
+const FetchPlanets = async (URL) => {
   const request = await fetch(URL);
   const data = await request.json();
   const response = data.results.map((e) => {
@@ -7,8 +7,9 @@ const planetsAPI = async (URL) => {
       orbitalPeriod: e.orbital_period,
       surfaceWater: e.surface_water };
     delete obj.residents;
-    return response;
+    return obj;
   });
+  return response;
 };
 
-export default planetsAPI;
+export default FetchPlanets;
